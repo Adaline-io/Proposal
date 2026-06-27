@@ -1,0 +1,65 @@
+name: Deploy proposals to GitHub Pages
+
+# Publishes the team-facing root directory (index.html) and every per-client
+# proposal folder (client-slug/index.html). Proposals are pre-built static HTML
+# committed to the repo; this workflow re-runs the Python builder so the deployed
+# output can never drift from the source data, then deploys the whole site.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment; cancel in-progress runs for the same ref.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build all proposals + index (stdlib only, no deps)
+        run: python3 _build/build_all.py
+
+      - name: Verify build is in sync with committed output
+        run: |
+          if [ -n "$(git status --porcelain ':!_ref')" ]; then
+            echo "::error::Built output differs from committed files. Run 'python3 _build/build_all.py' and commit the result."
+            git --no-pager diff --stat
+            exit 1
+          fi
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Whole repo is the site. .nojekyll keeps _build/ etc. from being
+          # processed; underscored dirs are served as-is but never linked.
+          path: .
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
