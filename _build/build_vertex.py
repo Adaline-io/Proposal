@@ -1,144 +1,287 @@
 """
-Vertex — PLACEHOLDER proposal ("vertex web development").
+Vertex PRO — client-ready proposal.
 
-Source repo Adaline-io/vertex-proposal is not in this session's scope, so the
-content below is structural scaffolding only — NOT client-ready. Replace with the
-migrated content once the source repo is in scope, and drop the draft banner.
-Accent below is a placeholder pending confirmation.
+Migrated from Adaline-io/vertex-proposal ("Vertex PRO" web development). Saudi /
+GCC construction, civil, steel-structure, industrial & fit-out contractor; a
+premium one-page digital presence. Re-cast into the canonical Adaline proposal
+style. Accent: gold (#c9a862), carried from the source brand.
+
+Vertex prices as a single all-in package (not itemised), so the investment uses
+a static layout rather than the toggle bundle calculator.
 
 Run:  python3 _build/build_vertex.py
 """
 
 import template as T
 
-# PLACEHOLDER accent — confirm with the Management before client-ready.
-PALETTE = "--red:#ff5c44;--yellow:#5a8eff;--green:#3dd483;--blue:#5a8eff;"
+PALETTE = "--red:#c9a862;--yellow:#c9a862;--green:#e4c988;--blue:#5a8eff;"
+
+# Static investment section (no toggle calculator — single package + optional retainer).
+INVESTMENT_HTML = """
+<section id="investment" class="page" aria-labelledby="invest-title">
+  <div class="kicker">04 · The Investment</div>
+  <h2 class="sec-title" id="invest-title">Simple, transparent pricing.</h2>
+  <p class="sec-sub">No hidden fees. No surprises. Everything you need to launch a premium digital
+  presence in one clear number — with an optional retainer if you want us to keep it growing.</p>
+
+  <div class="invest-hero">
+    <div>
+      <div class="ih-label">&#9656; COMPLETE PACKAGE &#183; ONE-TIME</div>
+      <div class="ih-title">Web Design + Dev + Content + Hosting + Email</div>
+      <p class="ih-desc">Everything included to get Vertex PRO online — custom design, development,
+      professional content, hosting &amp; deployment, and business email. <strong>~ SAR 2,500.</strong></p>
+    </div>
+    <div class="ih-price">&#8377;63,000</div>
+  </div>
+
+  <div class="notes-mini">
+    <div class="note-card">
+      <div class="nc-label">&#9656; What's Included</div>
+      <ul>
+        <li>Custom website design &amp; development</li>
+        <li>Professional content writing</li>
+        <li>Hosting &amp; deployment setup</li>
+        <li>Business email configuration</li>
+        <li>Responsive mobile design</li>
+        <li>Contact form with email alerts</li>
+        <li>SEO optimization</li>
+        <li>1 round of revisions</li>
+      </ul>
+    </div>
+    <div class="note-card">
+      <div class="nc-label">&#9656; Optional Add-On &#183; Content Management</div>
+      <ul>
+        <li>LinkedIn content strategy</li>
+        <li>Regular LinkedIn posts</li>
+        <li>Website content updates</li>
+        <li>New project additions</li>
+        <li>Performance reporting</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="invest-recur">
+    <div class="ir-l">LinkedIn + website content management &mdash; <strong>optional monthly retainer</strong> (~ SAR 800)</div>
+    <div class="ir-r">&#8377;20,000 / month</div>
+  </div>
+
+  <div class="notes-mini">
+    <div class="note-card">
+      <div class="nc-label">&#9656; Payment Schedule</div>
+      <ul>
+        <li>50% deposit on engagement start</li>
+        <li>50% on launch &amp; handover</li>
+        <li>Bank transfer &#183; INR or SAR equivalent at prevailing rate</li>
+      </ul>
+    </div>
+    <div class="note-card">
+      <div class="nc-label">&#9656; Things to Note</div>
+      <ul>
+        <li>All prices exclude applicable GST</li>
+        <li>Final design customised to Vertex PRO's official logo &amp; brand styleguides</li>
+        <li>Project imagery &amp; content inputs provided by Vertex PRO</li>
+        <li>Proposal valid for 30 days from date of issue</li>
+      </ul>
+    </div>
+  </div>
+</section>
+"""
 
 DATA = {
     "slug": "vertex",
-    "client": "Vertex",
-    "title": "Project Proposal · Vertex",
-    "description": "Project Proposal for Vertex — prepared by Adaline.",
+    "client": "Vertex PRO",
+    "title": "Project Proposal · Vertex PRO",
+    "description": "Web Development Proposal for Vertex PRO — prepared by Adaline.",
     "palette": PALETTE,
-    "draft_note": "Draft scaffold &mdash; <strong>placeholder content pending migration</strong> "
-                  "from vertex-proposal. Not client-ready.",
 
-    "nav_title": "Vertex",
-    "nav_sub": "Project Proposal",
-    "topnav": [("brief", "Brief"), ("build", "Build"), ("process", "Process"),
-               ("timeline", "Timeline"), ("investment", "Investment"), ("agency", "Agency")],
+    "nav_title": "Vertex PRO",
+    "nav_sub": "Web Development Proposal",
+    "topnav": [("brief", "Brief"), ("build", "Scope"), ("timeline", "Timeline"),
+               ("investment", "Investment"), ("agency", "Agency")],
     "menu": [("cover", "Cover", "00"), ("brief", "The Brief", "01"),
-             ("build", "What We Build", "02"), ("process", "How We Work", "03"),
-             ("timeline", "Timeline", "04"), ("investment", "The Investment", "05"),
-             ("agency", "The Agency", "06")],
+             ("build", "What We Build", "02"), ("timeline", "Timeline", "03"),
+             ("investment", "The Investment", "04"), ("agency", "The Agency", "05")],
 
     "hero": {
-        "tag": "Project Proposal · DRAFT",
-        "meta": [("Date", "TBD"), ("Valid", "10 days from issue")],
+        "tag": "Web Development Proposal",
+        "meta": [("Date", "May 2026"), ("Valid", "30 days from issue")],
         "prepared_label": "Prepared for",
-        "title_html": "Vertex.",
-        "sub": ["Web Development", "Placeholder", "Calicut, Kerala"],
-        "desc": "Placeholder brief. Real scope, deliverables, and pricing migrate in once "
-                "vertex-proposal is in scope.",
+        "title_html": "Vertex<br/>PRO.",
+        "sub": ["Web Design & Development", "Construction & Industrial", "Saudi Arabia & GCC"],
+        "desc": "A premium digital presence that reflects the quality of the work — from luxury "
+                "Dior retail fit-outs to large-scale industrial projects. Design, development, "
+                "content, hosting, and business email, delivered end-to-end.",
         "byline_html": "Proposal by<br/><strong>Adaline · The Agency</strong>",
     },
 
     "close": {
-        "thanks": "Let's Ship.",
+        "thanks": "Let's Build.",
         "cta": "HIT START",
-        "cta_subject": "Vertex — proposal acceptance",
-        "next_line": "Or, to commence the engagement, reply to:",
+        "cta_subject": "Vertex PRO — web development proposal acceptance",
     },
 
     "sections": [
-        {"type": "brief", "id": "brief", "kicker": "01 · The Brief",
-         "title": "Placeholder headline. The positioning line goes here.",
-         "sub": "Placeholder brief paragraph — set the market context and the move Vertex makes.",
-         "cells": [
-             {"num": "▸ The Opportunity", "h": "Placeholder opportunity.",
-              "p": "Replace with the real opportunity once content is migrated."},
-             {"num": "▸ The Goal", "h": "Placeholder goal.",
-              "p": "Replace with the real goal and time horizon."},
-             {"num": "▸ The Approach", "h": "Placeholder approach.",
-              "p": "Replace with the connected workstreams for this engagement."},
-         ]},
-        {"type": "build", "id": "build", "kicker": "02 · What We Build",
-         "title": "Deliverables. Each scoped. Each priced.",
-         "sub": "Placeholder deliverables. Swap in the real tabs and pricing on migration.",
-         "tabs": [
-             {"num": "01", "name": "Website", "h": "Placeholder Web Build",
-              "lead": "Placeholder lead describing the web development deliverable.",
-              "lists": [{"label": "▸ Scope", "items": ["Placeholder scope item one",
-                                                       "Placeholder scope item two",
-                                                       "Placeholder scope item three"]}],
-              "price_label": "One-time investment", "price": "₹00,000",
-              "price_note": "placeholder",
-              "meta": [("Duration", "TBD"), ("Tech", "TBD"), ("Support", "TBD")]},
-             {"num": "02", "name": "Care Plan", "h": "Placeholder Care Plan",
-              "lead": "Placeholder lead describing the ongoing maintenance retainer.",
-              "lists": [{"label": "▸ Monthly", "items": ["Placeholder item one",
-                                                         "Placeholder item two"]}],
-              "price_label": "Monthly retainer", "price": "₹00,000",
-              "price_note": "placeholder",
-              "meta": [("SLA", "TBD"), ("Response", "TBD")]},
-         ]},
-        {"type": "process", "id": "process", "kicker": "03 · How We Work",
-         "title": "Four phases. Documented. Scoped.",
-         "sub": "Placeholder process — identical cadence to the canonical, content TBD.",
-         "steps": [
-             {"n": "PHASE 01", "h": "Brief", "p": "Placeholder phase description."},
-             {"n": "PHASE 02", "h": "Plan", "p": "Placeholder phase description."},
-             {"n": "PHASE 03", "h": "Build", "p": "Placeholder phase description."},
-             {"n": "PHASE 04", "h": "Ship", "p": "Placeholder phase description."},
-         ],
-         "principles": [
-             {"label": "▸ Engineering", "h": "Placeholder principle.",
-              "p": "Replace with the engineering approach for this build."},
-             {"label": "▸ Performance", "h": "Placeholder principle.",
-              "p": "Replace with the performance / SEO strategy for this build."},
-         ]},
-        {"type": "timeline", "id": "timeline", "kicker": "04 · Timeline",
-         "title": "Placeholder timeline. Weeks to live.",
-         "sub": "Placeholder schedule — wire in the real tracks on migration.",
-         "tracks": [
-             {"name": "▸ Track A — Placeholder", "dur": "TBD",
-              "phases": [{"num": "P1", "name": "Discovery", "dur": "—"},
-                         {"num": "P2", "name": "Design", "dur": "—"},
-                         {"num": "P3", "name": "Development", "dur": "—"},
-                         {"num": "P4", "name": "Launch", "dur": "—"}]},
-         ],
-         "note": "<strong>Placeholder note.</strong> Replace with the real track summary."},
-        {"type": "investment", "id": "investment", "kicker": "05 · The Investment",
-         "title": "Deliverables. One clear number.",
-         "sub": "Placeholder investment. Real figures and split migrate in with the lead details.",
-         "hero": {"label": "▸ FULL PROGRAMME · FIRST MONTH",
-                  "title": "Placeholder bundle",
-                  "desc": "Placeholder description of the full-programme bundle.",
-                  "price": "₹0"},
-         "rows": [
-             {"num": "01", "name": "Placeholder Web Build", "note": "One-time · placeholder",
-              "price": "₹0", "price_val": 0, "recurring_val": 0, "short": "Web build"},
-             {"num": "02", "name": "Placeholder Care Plan · Month 1", "note": "Monthly · placeholder",
-              "price": "₹0", "price_val": 0, "recurring_val": 0, "short": "Care plan"},
-         ],
-         "recur": {"l": "From <strong>Month 2 onward</strong> — placeholder recurring",
-                   "r": "₹0 / month"},
-         "notes": [
-             {"label": "▸ Payment Schedule", "items": ["Placeholder split (e.g. 50 / 50)",
-                                                       "Monthly care plan invoiced in advance"]},
-             {"label": "▸ Things to Note", "items": ["All prices exclude applicable GST",
-                                                     "Placeholder note two"]},
-         ]},
-        {"type": "agency", "id": "agency", "kicker": "06 · The Agency",
-         "title": "Three reasons. They matter for Vertex specifically.",
-         "cells": [
-             {"mark": "▸ ONE", "h": "Co-builders, not vendors",
-              "p": "Placeholder — same agency positioning as canonical."},
-             {"mark": "▸ TWO", "h": "One studio, three engines",
-              "p": "Placeholder — brand, production, technology under one roof."},
-             {"mark": "▸ THREE", "h": "Placeholder differentiator",
-              "p": "Replace with the reason that matters specifically for Vertex."},
-         ]},
+        {
+            "type": "brief", "id": "brief", "kicker": "01 · The Brief",
+            "title": "Premium work. The digital presence should match it.",
+            "sub": "Vertex PRO delivers at the top of the market — luxury Dior retail fit-outs, steel "
+                   "structure erection, civil works, industrial machinery installations, HVAC, and interior "
+                   "fitouts across Saudi Arabia and the GCC. The website should carry that same weight: "
+                   "modern, fast, and built to win the brief.",
+            "cells": [
+                {"num": "▸ The Reality", "h": "The portfolio is world-class. The presence isn't yet.",
+                 "p": "From Dior flagship retail to large-scale steel and industrial projects, the work "
+                      "speaks for itself. A premium digital presence makes that credibility visible to every "
+                      "prospect before the first call."},
+                {"num": "▸ The Audience", "h": "GCC clients shortlist online first.",
+                 "p": "Developers, retail groups, and industrial principals across Saudi Arabia and the Gulf "
+                      "research and shortlist contractors digitally. A credible, fast, well-structured site "
+                      "is the first proof of quality."},
+                {"num": "▸ The Objective", "h": "Showcase the work. Generate the enquiry.",
+                 "p": "A modern, responsive site that showcases the portfolio, services, and credibility — "
+                      "with a working contact flow wired to the sales team. Designed from Vertex PRO's own "
+                      "logo and brand styleguides."},
+            ],
+            "players_kicker": "▸ Projects We'll Feature",
+            "players": [
+                {"tag": "Industrial", "h": "Steel Structure Erection", "p": "Saudi Arabia — large-scale structural steel."},
+                {"tag": "Retail", "h": "Dior Flagship Store", "p": "Riyadh, KSA — luxury retail fit-out."},
+                {"tag": "Retail", "h": "Magrabi Optical", "p": "KSA — premium retail rollout."},
+                {"tag": "Commercial", "h": "Industrial Complex", "p": "Saudi Arabia — commercial build & fit-out."},
+                {"tag": "Civil", "h": "Foundation Works", "p": "Saudi Arabia — civil & groundworks."},
+                {"tag": "+", "h": "More projects", "p": "Added with detailed cards, category filters, and lightbox viewing as the portfolio grows."},
+            ],
+        },
+
+        {
+            "type": "build", "id": "build", "kicker": "02 · What We Build",
+            "title": "A complete end-to-end web solution. No hidden costs.",
+            "sub": "From design to deployment, everything is included in one package. Tap each tab to see "
+                   "what's inside.",
+            "tabs": [
+                {
+                    "num": "01", "name": "Website", "h": "Website Design & Development",
+                    "lead": "A custom-designed, responsive website built with modern web technologies — "
+                            "tailored to Vertex PRO's existing logo and brand styleguides, fast across every "
+                            "device and region.",
+                    "lists": [
+                        {"label": "▸ Design & Build", "items": [
+                            "Custom design tailored to your existing logo and brand styleguides",
+                            "Responsive across all devices (mobile, tablet, desktop)",
+                            "Hero section with parallax scrolling effects",
+                            "About section with animated stat counters",
+                            "Services showcase (6 service categories)",
+                            "Project portfolio — installations, steel structure, industrial, and more",
+                            "Client logo marquee (customer scroll bars)",
+                            "Contact form with direct sales-team integration",
+                            "Navigation with smooth scrolling",
+                            "SEO optimization & meta tags"]},
+                        {"label": "▸ Performance", "items": [
+                            "Mobile-first responsive design",
+                            "Fast load times (under 2 seconds)",
+                            "Cross-browser & device tested",
+                            "Horizontal-scroll project gallery with lightbox"]},
+                    ],
+                    "price_label": "In the complete package", "price": "Included",
+                    "price_note": "Custom design · modern stack",
+                    "meta": [("Stack", "Modern web technologies"), ("Responsive", "Mobile-first"),
+                             ("Speed", "Under 2s load"), ("Revisions", "1 round included")],
+                },
+                {
+                    "num": "02", "name": "Content", "h": "Content Creation",
+                    "lead": "Professional copy that speaks to your target audience — written for both humans "
+                            "and search engines, across every section of the site.",
+                    "lists": [
+                        {"label": "▸ Copy Deliverables", "items": [
+                            "Hero headline & subtext",
+                            "About section — company story & mission",
+                            "6× service descriptions with features",
+                            "Project descriptions & categorization",
+                            "Contact section copy",
+                            "SEO meta descriptions"]},
+                    ],
+                    "price_label": "In the complete package", "price": "Included",
+                    "price_note": "Every section, written for you",
+                    "meta": [("Scope", "Full site copy"), ("SEO", "Meta descriptions"),
+                             ("Tone", "Premium, on-brand")],
+                },
+                {
+                    "num": "03", "name": "Hosting", "h": "Hosting & Deployment",
+                    "lead": "Reliable, fast hosting with everything configured — so the site loads quickly "
+                            "across Saudi Arabia, the GCC, and beyond.",
+                    "lists": [
+                        {"label": "▸ Infrastructure", "items": [
+                            "Domain transfer, configuration & DNS setup",
+                            "SSL certificate (HTTPS)",
+                            "CDN for global fast loading",
+                            "Production deployment & optimization",
+                            "Performance monitoring"]},
+                    ],
+                    "price_label": "In the complete package", "price": "Included",
+                    "price_note": "SSL · CDN · monitoring",
+                    "meta": [("SSL", "HTTPS included"), ("CDN", "Global edge"),
+                             ("Deploy", "Production-optimised")],
+                },
+                {
+                    "num": "04", "name": "Email", "h": "Business Email",
+                    "lead": "Professional email that matches your domain — for credible client "
+                            "communication and brand consistency.",
+                    "lists": [
+                        {"label": "▸ Setup", "items": [
+                            "Custom domain email (e.g. info@vertexpro.sa)",
+                            "Email client setup & configuration",
+                            "Spam protection & security",
+                            "Setup guidance & onboarding"]},
+                    ],
+                    "price_label": "In the complete package", "price": "Included",
+                    "price_note": "Domain email, configured",
+                    "meta": [("Domain", "info@vertexpro.sa"), ("Security", "Spam protection"),
+                             ("Onboarding", "Guided setup")],
+                },
+            ],
+        },
+
+        {
+            "type": "timeline", "id": "timeline", "kicker": "03 · Timeline",
+            "title": "From kickoff to launch in approximately 10 days.",
+            "sub": "A tight, focused schedule. Discovery to deployment in two working weeks, with a "
+                   "revision round built in before launch.",
+            "tracks": [
+                {"name": "▸ Design to Launch", "dur": "≈ 10 working days",
+                 "phases": [
+                     {"num": "D1", "name": "Discovery & Kickoff", "dur": "1 day"},
+                     {"num": "D2–4", "name": "Design & Content", "dur": "3 days"},
+                     {"num": "D5–7", "name": "Development", "dur": "3 days"},
+                     {"num": "D8–9", "name": "Testing & Revisions", "dur": "2 days"},
+                     {"num": "D10", "name": "Deployment & Handover", "dur": "1 day"}]},
+            ],
+            "note": "<strong>Day 1</strong> aligns on brand guidelines, content inputs, imagery, and sitemap. "
+                    "<strong>Days 2–7</strong> cover high-fidelity design, all page content, and the responsive "
+                    "build with animations, contact form, and SEO. <strong>Days 8–10</strong> handle "
+                    "cross-browser testing, revisions, domain/hosting/email setup, SSL, and launch — with "
+                    "handover documentation provided.",
+        },
+
+        {"type": "raw", "id": "investment", "html": INVESTMENT_HTML},
+
+        {
+            "type": "agency", "id": "agency", "kicker": "05 · The Agency",
+            "title": "Four reasons to build with us.",
+            "cells": [
+                {"mark": "▸ ONE", "h": "Design-first approach",
+                 "p": "Every pixel is intentional. We obsess over the details so the website feels premium "
+                      "and polished — a match for the calibre of the work it represents."},
+                {"mark": "▸ TWO", "h": "Performance focused",
+                 "p": "Lightning-fast load times, smooth animations, and optimisation for every device and "
+                      "connection speed across the region."},
+                {"mark": "▸ THREE", "h": "Transparent process",
+                 "p": "Regular updates, clear timelines, and no surprises. You always know exactly where the "
+                      "project stands."},
+                {"mark": "▸ FOUR", "h": "Modern tech stack",
+                 "p": "Built with current technologies for reliability, speed, and easy future updates as the "
+                      "portfolio and business grow."},
+            ],
+        },
     ],
 }
 

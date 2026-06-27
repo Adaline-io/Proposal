@@ -496,7 +496,11 @@ JS = r"""
   const labelEl=document.querySelector('.ih-label');
   const recurEl=document.querySelector('.invest-recur .ir-r');
   const recurLEl=document.querySelector('.invest-recur .ir-l');
+  const recurBox=document.querySelector('.invest-recur');
   const fullTitle=titleEl?titleEl.getAttribute('data-full')||titleEl.textContent:'';
+  const fullLabel=labelEl?labelEl.getAttribute('data-full')||labelEl.textContent:'';
+  const recurPrefix=recurBox?recurBox.getAttribute('data-prefix')||'Month 2 onward':'Month 2 onward';
+  const recurUnit=recurBox?recurBox.getAttribute('data-unit')||'month':'month';
 
   function fmt(n){
     // Indian-format with commas: 207000 -> "2,07,000"
@@ -508,7 +512,7 @@ JS = r"""
   }
 
   function recalc(){
-    if(!totalEl) return;
+    if(!totalEl || !toggles.length) return;  // static investment (no calculator) — leave prices as-is
     let total=0,recur=0,count=0;
     const all=toggles.length;
     toggles.forEach(t=>{
@@ -535,14 +539,14 @@ JS = r"""
       else titleEl.textContent=names.join(' + ');
     }
     if(labelEl){
-      labelEl.textContent=count===all?'▸ FULL PROGRAMME · FIRST MONTH':'▸ CUSTOM SELECTION · '+count+' OF '+all;
+      labelEl.textContent=count===all?fullLabel:'▸ CUSTOM SELECTION · '+count+' OF '+all;
     }
     if(recurEl){
-      recurEl.textContent='₹'+fmt(recur)+' / month';
+      recurEl.textContent='₹'+fmt(recur)+' / '+recurUnit;
     }
     if(recurLEl){
       const r=Array.from(toggles).filter(t=>t.checked && parseInt(t.dataset.recurring||'0',10)>0).map(t=>t.dataset.short);
-      recurLEl.innerHTML='From <strong>Month 2 onward</strong> — '+(r.length?r.join(' + ').toLowerCase():'no recurring items selected');
+      recurLEl.innerHTML='From <strong>'+recurPrefix+'</strong> — '+(r.length?r.join(' + ').toLowerCase():'no recurring items selected');
     }
   }
   toggles.forEach(t=>t.addEventListener('change',recalc));
@@ -697,10 +701,10 @@ def _investment(s):
     out.append('<h2 class="sec-title" id="%s-title">%s</h2>' % (s["id"], e(s["title"])))
     if s.get("sub"):
         out.append('<p class="sec-sub">%s</p>' % e(s["sub"]))
-    out.append('<div class="invest-hero"><div><div class="ih-label">%s</div>'
+    out.append('<div class="invest-hero"><div><div class="ih-label" data-full="%s">%s</div>'
                '<div class="ih-title" data-full="%s">%s</div><p class="ih-desc">%s</p></div>'
                '<div class="ih-price">%s</div></div>'
-               % (e(h["label"]), e(h["title"]), e(h["title"]), e(h["desc"]), e(h["price"])))
+               % (e(h["label"]), e(h["label"]), e(h["title"]), e(h["title"]), e(h["desc"]), e(h["price"])))
     out.append('<div class="bundle-hint">%s</div>' % e(s.get("hint", "TOGGLE TO CUSTOMISE THE BUNDLE")))
     out.append('<div class="invest-table">')
     for r in s["rows"]:
@@ -716,8 +720,10 @@ def _investment(s):
                e(r["name"]), e(r["note"]), e(r["price"])))
     out.append('</div>')
     rc = s["recur"]
-    out.append('<div class="invest-recur"><div class="ir-l">%s</div><div class="ir-r">%s</div></div>'
-               % (rc["l"], e(rc["r"])))  # l raw: allows <strong>
+    out.append('<div class="invest-recur" data-prefix="%s" data-unit="%s">'
+               '<div class="ir-l">%s</div><div class="ir-r">%s</div></div>'
+               % (e(rc.get("prefix", "Month 2 onward")), e(rc.get("unit", "month")),
+                  rc["l"], e(rc["r"])))  # l raw: allows <strong>
     out.append('<div class="notes-mini">')
     for nc in s["notes"]:
         out.append('<div class="note-card"><div class="nc-label">%s</div><ul>%s</ul></div>'
@@ -831,9 +837,6 @@ def _close(d, A):
         '<div class="signs">%s</div>'
         '<h2 class="thanks">%s</h2>'
         '<a class="cta-start" href="%s">%s <span class="arr">&rarr;</span></a>'
-        '<div class="next-line">%s</div>'
-        '<button class="next-em" data-email="%s" aria-label="Copy email address to clipboard">%s'
-        '<span class="copy-ic" aria-hidden="true"></span></button>'
         '<div class="foot-block">'
         '<div class="fb-wm"><img src="%s" alt="Adaline"></div>'
         '<div class="fb-sep" aria-hidden="true"></div>'
@@ -842,8 +845,7 @@ def _close(d, A):
         '<div class="fbc-fade">%s &#183; %s</div></div>'
         '</div></section>'
         % (signs, e(c.get("thanks", "Thank You.")), mailto, e(c.get("cta", "HIT START")),
-           e(c.get("next_line", "To commence the engagement, reply to:")),
-           e(email), e(email), A["wordmark"], e(CONTACT["legal_name"]),
+           A["wordmark"], e(CONTACT["legal_name"]),
            e(email), e(CONTACT["whatsapp"]), e(CONTACT["gstin"]), e(CONTACT["place"]))
     )
 
