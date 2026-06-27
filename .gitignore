@@ -1,0 +1,9 @@
+# Python
+__pycache__/
+*.pyc
+
+# Local reference material fetched from other repos (not part of this repo)
+_ref/
+
+# Local screenshots / scratch
+*.local.png

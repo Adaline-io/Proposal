@@ -1,0 +1,29 @@
+{
+  "_comment": "Proposal registry. The root index renders these NEWEST-FIRST (sorted by `date` descending, then name). status: ready | draft. Keep this in sync when adding a proposal.",
+  "clients": [
+    {
+      "slug": "bz-fitness",
+      "name": "BZ Fitness",
+      "tagline": "Strength & conditioning — brand + web.",
+      "accent": "#ff5c44",
+      "status": "draft",
+      "date": "2026-06-27"
+    },
+    {
+      "slug": "vertex",
+      "name": "Vertex",
+      "tagline": "Vertex web development.",
+      "accent": "#5a8eff",
+      "status": "draft",
+      "date": "2026-06-27"
+    },
+    {
+      "slug": "rocafuel",
+      "name": "Roca Fuels",
+      "tagline": "A fuel station that operates as a brand.",
+      "accent": "#f5f1ea",
+      "status": "ready",
+      "date": "2026-06-14"
+    }
+  ]
+}
