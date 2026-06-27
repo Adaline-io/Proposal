@@ -4,18 +4,10 @@
     {
       "slug": "bz-fitness",
       "name": "BZ Fitness",
-      "tagline": "Strength & conditioning — brand + web.",
-      "accent": "#ff5c44",
-      "status": "draft",
-      "date": "2026-06-27"
-    },
-    {
-      "slug": "vertex",
-      "name": "Vertex",
-      "tagline": "Vertex web development.",
-      "accent": "#5a8eff",
-      "status": "draft",
-      "date": "2026-06-27"
+      "tagline": "Kuwait's deepest fitness catalog, finally online.",
+      "accent": "#ff4d2e",
+      "status": "ready",
+      "date": "2026-06-23"
     },
     {
       "slug": "rocafuel",
@@ -24,6 +16,22 @@
       "accent": "#f5f1ea",
       "status": "ready",
       "date": "2026-06-14"
+    },
+    {
+      "slug": "vertex",
+      "name": "Vertex PRO",
+      "tagline": "A premium web presence for construction & industrial.",
+      "accent": "#c9a862",
+      "status": "ready",
+      "date": "2026-05-01"
+    },
+    {
+      "slug": "roca-app",
+      "name": "ROCA Group",
+      "tagline": "Feasibility study for a B2B auto-parts platform.",
+      "accent": "#d4a853",
+      "status": "ready",
+      "date": "2026-04-01"
     }
   ]
 }

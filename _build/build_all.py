@@ -20,6 +20,7 @@ CLIENT_MODULES = [
     "build_rocafuel",
     "build_bzfitness",
     "build_vertex",
+    "build_rocaapp",
 ]
 
 

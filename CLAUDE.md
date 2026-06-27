@@ -104,17 +104,21 @@ Management prefers the pure-canonical close, remove `.cta-start` from `_close()`
 
 ---
 
-## Status of the first entries
+## Status of the entries
 
-| Slug         | Source repo                     | Status |
-|--------------|----------------------------------|--------|
-| `rocafuel`   | Adaline-BC/Rocafuels_proposal    | **Client-ready** — migrated verbatim, B&W accent |
-| `bz-fitness` | Adaline-io/Bz-fitness-proposal   | **Draft** — placeholder, source repo not yet in scope |
-| `vertex`     | Adaline-io/vertex-proposal       | **Draft** — placeholder, source repo not yet in scope |
+| Slug         | Source repo                     | Accent | Status |
+|--------------|----------------------------------|--------|--------|
+| `rocafuel`   | Adaline-BC/Rocafuels_proposal    | B&W (`#f5f1ea`) | **Migrated** — verbatim, monochrome |
+| `bz-fitness` | Adaline-io/Bz-fitness-proposal   | Red-orange (`#ff4d2e`) | **Migrated** — Kuwait fitness catalog |
+| `vertex`     | Adaline-io/vertex-proposal       | Gold (`#c9a862`) | **Migrated** — Vertex PRO web build (static investment) |
+| `roca-app`   | Adaline-BC/Roca-Proposal         | Gold (`#d4a853`) | **Migrated** — ROCA Group feasibility study (AED, static investment) |
 
-The two drafts carry a striped DRAFT banner and placeholder copy/pricing. When
-their source repos are in session scope, replace the `DATA` content, set the real
-accent, drop `draft_note`, and flip `status` to `ready` in `clients.json`.
+All four are migrated from their real source repos (fetched over public HTTPS;
+the four reference repos are outside this session's GitHub MCP scope). **They
+still need a Management review before being sent to a client** — confirm the
+two per-client accents flagged above (Vertex / roca-app both gold) and the copy.
+The `draft_note` banner mechanism remains in `template.py` for any future
+placeholder.
 
 ---
 
