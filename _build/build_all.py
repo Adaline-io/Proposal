@@ -21,6 +21,7 @@ CLIENT_MODULES = [
     "build_bzfitness",
     "build_vertex",
     "build_rocaapp",
+    "build_ktone",
 ]
 
 

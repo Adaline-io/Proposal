@@ -2,6 +2,14 @@
   "_comment": "Proposal registry. The root index renders these NEWEST-FIRST (sorted by `date` descending, then name). status: ready | draft. Keep this in sync when adding a proposal.",
   "clients": [
     {
+      "slug": "ktone",
+      "name": "K Tone",
+      "tagline": "Custom car audio builds, tuning, and damping — made visible.",
+      "accent": "#1f9e8f",
+      "status": "ready",
+      "date": "2026-07-01"
+    },
+    {
       "slug": "bz-fitness",
       "name": "BZ Fitness",
       "tagline": "Kuwait's deepest fitness catalog, finally online.",
